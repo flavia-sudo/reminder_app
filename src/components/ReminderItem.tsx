@@ -1,15 +1,16 @@
 import React from 'react'
 import { type Reminder } from '../types';
-import { FaUserAlt, FaBriefcase, FaRegHeart, FaUserGraduate, FaRegFolder, FaCalendar, FaClock, FaCheck, FaTrash } from "react-icons/fa";
+import { FaUserAlt, FaBriefcase, FaRegHeart, FaUserGraduate, FaRegFolder, FaCalendar, FaClock, FaCheck, FaEdit, FaTrash } from "react-icons/fa";
 import { IoMdAlert } from "react-icons/io";
 import { formatDateTime, getTimeUtil, isLapsed } from '../utils/date';
 
 interface ReminderItemProps {
     reminder: Reminder;
     onComplete: (id: string) => void;
+    onEdit: (id: string) => void;
     onDelete: (id: string) => void;
 }
-const ReminderItem: React.FC<ReminderItemProps> = ({reminder, onComplete, onDelete}) => {
+const ReminderItem: React.FC<ReminderItemProps> = ({reminder, onComplete, onEdit, onDelete}) => {
     const categoryIcons = {
         personal: FaUserAlt,
         work: FaBriefcase,
@@ -98,6 +99,9 @@ const ReminderItem: React.FC<ReminderItemProps> = ({reminder, onComplete, onDele
         <div className='flex justify-end p-4 ml-2'>
             <button className='mr-2' onClick={() => onComplete(reminder.id)}>
                 <FaCheck className='w-6 h-6 text-green-500'/>
+            </button>
+            <button className="mr-2" onClick={() => onEdit(reminder.id)}>
+                <FaEdit className='w-6 h-6 text-blue-500'/>
             </button>
             <button onClick={() => onDelete(reminder.id)}>
                 <FaTrash className='w-6 h-6 text-red-500'/>
