@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { getCurrentDateTime } from '../utils/date';
 import { FaPlus, FaVolumeUp } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
-import { type ReminderForm } from '../types';
+import { type ReminderFormData } from '../types';
 
 interface ReminderFormProps {
-    onSubmit: (data: ReminderForm) => void;
+    onSubmit: (data: ReminderFormData) => void;
     isVisible: boolean;
     onClose: () => void;
 }
 const ReminderForm: React.FC<ReminderFormProps> = ({ onSubmit, isVisible, onClose }) => {
-    const [formData, setFormData] = useState<ReminderForm>({
+    const [formData, setFormData] = useState<ReminderFormData>({
         title: '',
         description: '',
         date: '',
@@ -167,4 +167,4 @@ const ReminderForm: React.FC<ReminderFormProps> = ({ onSubmit, isVisible, onClos
     );
 }
 
-export default ReminderForm
+export default ReminderForm;

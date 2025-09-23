@@ -10,7 +10,7 @@ export interface Reminder {
     createdAt: string;
 }
 
-export interface ReminderForm {
+export interface ReminderFormData {
     title: string;
     description: string;
     date: string;
